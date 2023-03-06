@@ -1,0 +1,119 @@
+ingredient:
+  className: \App\Entity\Ingredient
+  datas:
+    1:
+      name: Tomate
+      price: 1.3
+    2:
+      name: Mozzarella di Buffala
+      price: 2.5
+    3:
+      name: Basilic
+      price: 0.6
+    4:
+      name: Câpres
+      price: 0.5
+    5:
+      name: Anchois
+      price: 1
+    6:
+      name: Olives
+      price: 1.2
+    7:
+      name: Champignons
+      price: 1.4
+    8:
+      name: Jambon
+      price: 2
+    9:
+      name: Jambon truffé
+      price: 3.5
+    10:
+      name: Gorgonzola
+      price: 2.5
+    11:
+      name: Tallegio (Fromage de Lombardie)
+      price: 2
+    12:
+      name: Parmigiano
+      price: 2
+    13:
+      name: Pesto
+      price: 1.4
+    14:
+      name: Artichauts a la contadina
+      price: 1.6
+pizza:
+  className: \App\Entity\Pizza
+  datas:
+    1:
+      name: Margherita
+      ingredients:
+        className: \App\Entity\Ingredient
+        method: addIngredient
+        datas:
+          - 1
+          - 2
+          - 3
+    2:
+      name: Siciliana
+      picture: siciliana.png
+      ingredients:
+        className: \App\Entity\Ingredient
+        method: addIngredient
+        datas:
+          - 1
+          - 2
+          - 4
+          - 5
+          - 6
+    3:
+      name: Capriciosa
+      picture: capriciosa.png
+      ingredients:
+        className: \App\Entity\Ingredient
+        method: addIngredient
+        datas:
+          - 1
+          - 2
+          - 7
+          - 9
+          - 14
+    4:
+      name: Quattro Formaggi
+      picture: quattro-formaggi.png
+      ingredients:
+        className: \App\Entity\Ingredient
+        method: addIngredient
+        datas:
+          - 1
+          - 2
+          - 10
+          - 11
+          - 12
+    5:
+      name: Burratina
+      picture: null
+      ingredients:
+        className: \App\Entity\Ingredient
+        method: addIngredient
+        datas:
+          - 1
+          - 2
+          - 3
+          - 9
+          - 12
+    6:
+      name: Veggie
+      picture: veggie.jpg
+      ingredients:
+        className: \App\Entity\Ingredient
+        method: addIngredient
+        datas:
+          - 1
+          - 2
+          - 4
+          - 5
+          - 6
+          - 7
+          - 14

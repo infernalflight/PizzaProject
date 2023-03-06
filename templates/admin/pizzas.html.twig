@@ -1,0 +1,42 @@
+{% extends 'base_layout.html.twig' %}
+
+{% block content %}
+    <h2>Gérer le catalogue de pizzas</h2>
+    <br/>
+    <a href="{{ path('admin_pizza_edit', {'id' : 0}) }}" class="btn btn-secondary">Nouvelle Pizza</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</td>
+                <th>Nom</th>
+                <th>Ingrédients</th>
+                <th>Image</th>
+                <th>Prix de base</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pizza in pizzas %}
+                <tr>
+                    <th>{{ pizza.id }}</th>
+                    <td>{{ pizza.name }}</td>
+                    <td>
+                        {% for ingredient in pizza.ingredients %}
+                            {{ ingredient.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% if pizza.picture is not null %}
+                            <img src="{{ asset('/uploads/'~pizza.picture) }}" width="100px" />
+                        {% endif %}
+                    </td>
+                    <td>{{ pizza.price|number_format(2, ',', ' ') }} €</td>
+                    <td>
+                        <a href="{{ path("admin_pizza_edit", {'id': pizza.id}) }}" class="btn btn-secondary">Editer</a>&nbsp;
+                        <a href="{{ path("admin_pizza_delete", {'id': pizza.id}) }}" class="btn btn-secondary" onclick="return confirm('Etes-vous sûr ?')">Supprimer</a>&nbsp;
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

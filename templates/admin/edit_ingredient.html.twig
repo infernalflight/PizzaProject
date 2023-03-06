@@ -1,0 +1,26 @@
+{% extends 'base_layout.html.twig' %}
+
+{% block content %}
+    <a href="{{ path('admin_ingredient_list') }}">Retour</a>
+    {{ form_start(form) }}
+    <table class="table" data-controller="price">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ form_widget(form.name) }}</td>
+                <td>{{ form_widget(form.price) }} €</td>
+            </tr>
+            <tr>
+                <td>{{ form_errors(form.name) }}</td>
+                <td>{{ form_errors(form.price) }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

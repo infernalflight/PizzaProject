@@ -1,0 +1,33 @@
+{% extends 'base_layout.html.twig' %}
+
+{% block content %}
+    <p class="text-center">Bongiorno, faites votre choix parmi nos délicieuses pizzas. Vous pouvez les customiser selon votre goût.</p>
+    <ul class="catalogue_pizzas">
+        {% for pizza in pizzas %}
+            <a href="{{ path('pizza_detail', {'id' : pizza.id}) }}">
+                <li class="row align-items">
+                    <div class="pizza_image col-2 align-self-center" style="flex: auto" >
+                        {% if pizza.picture is not null %}
+                            <img src="{{ asset('/uploads/'~pizza.picture) }}" width="100px" class="rounded-circle" />
+                        {% endif %}
+                    </div>
+                    <div class="col-8 align-self-center">
+                        <span class="pizza_name">{{ pizza.name }}</span><br />
+                        (
+                        {% for ingredient in pizza.ingredients %}
+                            {{ ingredient.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                        )
+                    </div>
+                    <div class="pizza_price col-2 align-self-center">
+                        {{ pizza.price|number_format(2, ',', ' ') }} €
+                    </div>
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+    <br />
+    <div class="alert alert-warning text-center">
+        URGENT ! Pizza Fredo recrute Webdesigner. Envoyer CV directement à la pizzeria
+    </div>
+{% endblock %}

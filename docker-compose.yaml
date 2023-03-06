@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  dbdata:
+
+services:
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - dbdata:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: pizza
+      POSTGRES_DB: pizza
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - '5434:5432'

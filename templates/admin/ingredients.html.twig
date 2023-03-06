@@ -1,0 +1,31 @@
+{% extends 'base_layout.html.twig' %}
+
+{% block content %}
+    <h2>Gérer le catalogue d'ingrédients</h2>
+    <br/>
+    <a href="{{ path('admin_ingredient_edit', {'id' : 0}) }}" class="btn btn-secondary">Nouvel Ingrédient</a>
+    <br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ingredient in ingredients %}
+            <tr>
+                <th>{{ ingredient.id }}</th>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.price|number_format(2, ',', ' ') }}  €</td>
+                <td>
+                    <a href="{{ path("admin_ingredient_edit", {'id': ingredient.id}) }}" class="btn btn-secondary">Editer</a>&nbsp;
+                    <a href="{{ path("admin_ingredient_delete", {'id': ingredient.id}) }}" class="btn btn-secondary" onclick="return confirm('Etes-vous sûr ?')">Supprimer</a>&nbsp;
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

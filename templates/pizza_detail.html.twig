@@ -1,0 +1,29 @@
+{% extends 'base_layout.html.twig' %}
+
+{% block content %}
+    <a href="{{ path('home') }}">Retour au catalogue</a>
+    <div class="pizza_detail row align-items">
+        <div class="pizza_image col-2 align-self-center">
+            {% if pizza.picture is not null %}
+                <img src="{{ asset('/uploads/'~pizza.picture) }}" width="100px" />
+            {% endif %}
+        </div>
+        <div class="pizza_presentation col-8 align-self-center">
+            Commander une <span class="pizza_name">{{ pizza.name }}</span>
+        </div>
+        <div class="pizza_price col-2 align-self-center">
+            {{ pizza.price|number_format(2, ',', ' ') }} €
+        </div>
+    </div>
+    <div class="pizza_detail_help">Vous pouvez customiser votre pizza en modifiant des ingrédients.</div>
+    <div class="" data-controller="price">
+        <ul>
+        {% for checkbox in form.ingredients  %}
+            <li>{{ form_widget(checkbox) }}
+                {{ form_label(checkbox) }}
+                 </li>
+        {% endfor %}
+        </ul>
+        <input id="download_pizza" class="btn btn-primary" type="button" value="Télécharger votre pizza chaude" data-controller="download" />
+    </div>
+{% endblock %}

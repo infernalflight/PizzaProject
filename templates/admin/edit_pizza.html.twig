@@ -1,0 +1,39 @@
+{% extends 'base_layout.html.twig' %}
+
+{% block content %}
+    <a href="{{ path('admin_pizza_list') }}">Retour</a>
+    {{ form_start(form) }}
+    <table class="table" data-controller="price">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Ingrédients</th>
+                <th>Image</th>
+                <th>Prix de base</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ form_errors(form.name) }}
+                    {{ form_widget(form.name) }}</td>
+                <td>
+                    {% for checkbox in form.ingredients.ingredients  %}
+                        <li>{{ form_widget(checkbox) }}
+                            {{ form_label(checkbox) }}
+                        </li>
+                    {% endfor %}
+                </td>
+                <td>{{ form_errors(form.file) }}
+                    {{ form_widget(form.file) }}
+                    <br /><br />
+                    {% if pizza is not null and pizza.picture is not null %}
+                        <img src="{{ asset('/uploads/'~pizza.picture) }}" class="img-fluid" style="max-width: 300px" />
+                    {% endif %}
+                </td>
+                <td><span class="pizza_price" style="color:black;">{{ pizza.price }} €</span></td>
+            </tr>
+        </tbody>
+    </table>
+    {{ form_widget(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

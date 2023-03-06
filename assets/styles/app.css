@@ -1,0 +1,59 @@
+body {
+    background-color: honeydew;
+    font-family: Arial;
+    color: black;
+}
+
+h1 {
+    color: #B0413E;
+    text-align: center;
+}
+
+ul.catalogue_pizzas {
+    list-style: none;
+}
+
+ul.catalogue_pizzas a {
+    color: white;
+    text-decoration: none;
+}
+
+ul.catalogue_pizzas li {
+    background-color: darkslategray;
+    padding:1em;
+    margin: 1em;
+}
+
+ul.catalogue_pizzas a:hover li{
+    background-color: olivedrab;
+    color:yellow;
+}
+
+.catalogue_pizzas .pizza_name {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.pizza_price {
+    font-size: 1.5em;
+    color: yellow;
+}
+
+.pizza_detail {
+    background-color: darkslategray;
+    color: white;
+    padding:1em;
+    margin: 1em;
+}
+
+.pizza_presentation {
+    font-size: 1.5em;
+}
+
+.pizza_presentation .pizza_name {
+    font-size: 1.5em;
+}
+
+.pizza_detail_help {
+    margin: 1em 0;
+}
