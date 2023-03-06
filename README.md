@@ -6,6 +6,7 @@ Customisez votre pizza
 ```
 PHP 8.1
 Symfony 6.2
+Postgres 15
 Volta
 ```
 
