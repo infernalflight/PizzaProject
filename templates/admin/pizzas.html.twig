@@ -27,7 +27,7 @@
                     </td>
                     <td>
                         {% if pizza.picture is not null %}
-                            <img src="{{ asset('/uploads/'~pizza.picture) }}" width="100px" />
+                            <img src="{{ asset('/uploads/'~pizza.picture) }}" width="100px" alt="{{ pizza.name }}" />
                         {% endif %}
                     </td>
                     <td>{{ pizza.price|number_format(2, ',', ' ') }} €</td>
